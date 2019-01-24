@@ -4,8 +4,8 @@
     <router-link to="/" tag="div">
       <a class="active" href="#home">Home</a>
     </router-link>
-    <router-link to="/About" tag="div"> 
-      <a href="#about">About</a>
+    <router-link to="/showBoard" tag="div"> 
+      <a href="/showBoard">Board</a>
     </router-link>
     <input class="searchBox" type="text">
   </div>
@@ -26,7 +26,7 @@
   */
   .framework-width {
     margin: 0 auto;
-    width: 60%;
+    width: 100%;
   }
 
   /* 

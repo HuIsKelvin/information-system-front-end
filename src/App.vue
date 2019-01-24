@@ -4,10 +4,6 @@
       <div class="top-nav">
         <top-nav></top-nav>
       </div>
-      <!--
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-      -->
     </div>
     <div class="content">
       <router-view class="view"/>
@@ -17,15 +13,15 @@
 </template>
 
 <script>
-import TopNav from './components/TopNav'
-import Footer from './components/Footer'
+import TopNav from './components/common/TopNav'
+import Footer from './components/common/Footer'
 
 export default {
   name: 'App',
   components: {
     "top-nav": TopNav,
     "Vfooter": Footer
-  }
+  },
 }
 </script>
 
@@ -45,8 +41,8 @@ export default {
 }
 
 .content {
-  height:500px;
-  background-color: beige;
+  height: 500px;
+  background-color: #61D7A4;
 }
 
 .view {
@@ -56,6 +52,6 @@ export default {
 .footer {
   width: 100%;
   min-height: 200px;
-  background-color: aquamarine;
+  background-color: #36D792;
 }
 </style>

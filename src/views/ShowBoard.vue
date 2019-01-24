@@ -1,9 +1,6 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-    <ul>
-      <li v-for="(item,index) in items" :key="index">{{index}}<h5>{{item}}</h5></li>
-    </ul>
+  <div class="show-board">
+    <h1>This is an show board of data</h1>
   </div>
 </template>
 
@@ -11,7 +8,6 @@
 export default {
   data () {
     return {
-      items: ["item1", "item2"],
     }
   }  
 }

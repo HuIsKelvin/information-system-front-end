@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>footer</h1>
-    <div>&copy kelvin</div>
+    <div></div>
   </div>  
 </template>
 
