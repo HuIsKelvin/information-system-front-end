@@ -36,13 +36,14 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  /* color: #2c3e50; */
+  color: white;
   margin-top: 60px;
 }
 
 .content {
   height: 500px;
-  background-color: #61D7A4;
+  background-color: #00BFB3;
 }
 
 .view {
@@ -52,6 +53,6 @@ export default {
 .footer {
   width: 100%;
   min-height: 200px;
-  background-color: #36D792;
+  background-color: #049A8F;
 }
 </style>

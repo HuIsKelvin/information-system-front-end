@@ -2,6 +2,8 @@
 <div>
   <h1>component b</h1>
   <div>{{message}}</div>
+  <h2>data: {{data}}</h2>
+  <h2>{{busdata}}</h2>
 </div>
 </template>
 
@@ -12,10 +14,16 @@
     name: "comb",
     data() {
       return {
-        message: "!"
+        message: "!",
+        data: Bus.data
       }
     },
     methods: {
+    },
+    computed: {
+      busdata() {
+        return Bus.data
+      }
     },
     mounted() {
       let self = this;

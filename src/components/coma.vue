@@ -17,7 +17,8 @@ export default {
   },
   methods: {
     send() {
-      Bus.$emit("sendmsg", this.msg)
+      Bus.$emit("sendmsg", this.msg);
+      Bus.$emit("update_data", "the data from backend")
     }
   },
   // mounted: () => {
