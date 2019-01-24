@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <h1>Home Page</h1>
     <!-- <div class="test">
       测试bus在组件间通信
       <coma></coma>
@@ -18,8 +19,8 @@ export default {
   name: 'home',
   components: {
     // HelloWorld,
-    coma,
-    comb
+    // coma,
+    // comb
   }
 }
 </script>
