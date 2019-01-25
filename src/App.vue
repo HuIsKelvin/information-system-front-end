@@ -27,7 +27,7 @@ export default {
 
 <style>
 * {
-  margin: 0;
+  /* margin: 0; */
   box-sizing: border-box;
 }
 
@@ -35,20 +35,20 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  /* text-align: center; */
   /* color: #2c3e50; */
-  color: white;
+  color: black;
   margin-top: 60px;
 }
 
 .content {
-  height: 500px;
-  background-color: #00BFB3;
+  min-height: 500px;
+  /* background-color: #00BFB3; */
 }
 
-.view {
+/* .view {
   height: 600px;
-}
+} */
 
 .footer {
   width: 100%;

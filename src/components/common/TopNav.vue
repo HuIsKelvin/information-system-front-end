@@ -1,4 +1,5 @@
 <template>
+  <!-- 导航栏 -->
   <div class="topnav framework-width">
   <div class="framework-width">
     <router-link to="/" tag="div">
@@ -7,14 +8,19 @@
     <router-link to="/showBoard" tag="div"> 
       <a href="/showBoard">Board</a>
     </router-link>
-    <input class="searchBox" type="text">
+    <search-box class="search-box"></search-box>
+    <!-- <input class="search-box" type="text"> -->
   </div>
   </div>
 </template>
 
 <script>
-  export default {
+  import SearchBox from './../common/SearchBox.vue'
 
+  export default {
+    components: {
+      "search-box": SearchBox,
+    }
   }
 </script>
 
@@ -61,7 +67,7 @@
     color: white;
   }
 
-  .topnav .searchBox {
+  .topnav .search-box {
     float: right;
     display: block;
     margin: 10px 16px;
