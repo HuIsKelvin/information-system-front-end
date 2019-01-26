@@ -1,33 +1,65 @@
 <template>
   <div class="home">
-    <h1>Home Page</h1>
-    <!-- <div class="test">
-      测试bus在组件间通信
-      <coma></coma>
-      <comb></comb>
-    </div> -->
+    <!-- <h1>Home Page</h1> -->
+    <!-- 搜索框 + 封面 -->
+    <div class="home-pane">
+      <search-box class="center search-box"></search-box>
+    </div>
+    <!-- 词云 -->
+    <!-- 响应式布局 -->
+    <div class="home-pane">
+      <el-row>
+        <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
+          <h1>AI Field</h1>
+        </el-col>
+        <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
+          <h1>AI ORG</h1>
+        </el-col>
+        <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
+          <h1>AI TECH</h1>
+        </el-col>
+      </el-row>
+    </div>
+    <!-- 资讯 -->
+    <div class="home-pane">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem repudiandae perferendis
+      reiciendis, ipsam atque adipisci, provident dolores quae voluptates maiores facere eos quidem architecto nemo at
+      totam vel nesciunt magni!</div>
+    <!-- 资讯 -->
+    <div class="home-pane">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates voluptatem ad fuga, quis
+      dolores molestiae in atque unde, iusto facere natus illum aperiam quaerat magni quod. Expedita, ab. Neque,
+      obcaecati.</div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-//import HelloWorld from '@/components/HelloWorld.vue'
-// import coma from '@/components/coma.vue'
-// import comb from '@/components/comb.vue'
+  import SearchBox from "./../components/common/SearchBox"
 
-export default {
-  name: 'home',
-  components: {
-    // HelloWorld,
-    // coma,
-    // comb
-  },
-}
+  export default {
+    name: 'home',
+    components: {
+      "search-box": SearchBox
+    },
+  }
 </script>
 
 <style>
-.test {
-  border: 1px solid white;
-}
-</style>
+  .center {
+    margin: 0 auto;
+  }
 
+  .home {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .home-pane {
+    min-height: 200px;
+    border: 1px solid grey;
+    padding: 10px 5px;
+    margin: 5px;
+  }
+
+  .search-box {
+    margin: 50px auto;
+    }
+</style>

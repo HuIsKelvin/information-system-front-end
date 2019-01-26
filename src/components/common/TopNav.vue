@@ -42,7 +42,7 @@
     overflow: hidden;
     background-color: #e9e9e9;
     box-shadow: 0px 1px 2px #aaaaaa;
-    position: fixed;
+    /* position: fixed; */
     top: 0;
     width: 100%;
   }

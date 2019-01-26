@@ -16,12 +16,6 @@
         title: "可视化示例",
         // xData: ["nuctech Co Ltd", "Tsinghua University", "Hon Hai Precision Industry Co Ltd", "Huawei Technologies Co Ltd"],
         // yData: [3, 11, 8, 2],
-        // bar_Exp2Org: {
-        //   "nuctech Co Ltd": 3,
-        //   "Tsinghua University": 11,
-        //   "Hon Hai Precision Industry Co Ltd": 8,
-        //   "Huawei Technologies Co Ltd": 2
-        // }
       }
     },
     computed: {
@@ -60,9 +54,6 @@
         }]
       });
       
-      // myCharts.on("click", function() {
-      //   window.open("https://www.baidu.com")
-      // });
       myChart.on('click', function (params) {
         window.open('https://www.baidu.com/s?wd=' + encodeURIComponent(params.name));
       });
@@ -73,7 +64,7 @@
 
 <style>
 .graph {
-  width: 70%;
+  width: 100%;
   min-height: 200px;
   height: 400px;
   border: 1px solid grey;
