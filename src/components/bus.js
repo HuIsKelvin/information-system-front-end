@@ -25,18 +25,21 @@ export default new Vue({
         this.data = val;
       })
     },
-    update_query(val) {
+    update_query_text(val) {
       if(val != "") {
         this.query_data.query_text = val;
       }
+    },
+    receive_result(val) {
+      this.query_data.query_result = val;
     }
   },
-  created() {
-    // 监听事件
-    this.$on("update_data", (val) => {
-      this.data = val;
-    })
-  },
+  // created() {
+  //   // 监听事件
+  //   this.$on("update_data", (val) => {
+  //     this.data = val;
+  //   })
+  // },
   data() {
     return {
       data: "origin data",

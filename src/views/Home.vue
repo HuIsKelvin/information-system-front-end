@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <!-- <h1>Home Page</h1> -->
+    <button @click="test">test</button>
     <!-- 搜索框 + 封面 -->
     <div class="home-pane">
       <search-box class="center search-box"></search-box>
@@ -9,13 +10,13 @@
     <!-- 响应式布局 -->
     <div class="home-pane">
       <el-row>
-        <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
+        <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8">
           <h1>AI Field</h1>
         </el-col>
-        <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
+        <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8">
           <h1>AI ORG</h1>
         </el-col>
-        <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
+        <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8">
           <h1>AI TECH</h1>
         </el-col>
       </el-row>
@@ -39,6 +40,17 @@
     components: {
       "search-box": SearchBox
     },
+    methods: {
+      test() {
+        // this.$axios.get("/api/test.json")
+        //   .then(res => {
+        //     console.log(res.data);
+        //   })
+        //   .catch(err => {
+        //     console.log(err);
+        //   })
+      }
+    }
   }
 </script>
 

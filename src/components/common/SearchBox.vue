@@ -9,7 +9,7 @@
         @keyup.enter.native="search_query"
         placeholder="whatever comes to your mind">
       </el-input>
-      <el-button type="primary" @click="search_query">submit</el-button>
+      <!-- <el-button type="primary" @click="search_query">submit</el-button> -->
     </el-form>
   </div>
 </template>
@@ -25,9 +25,20 @@ export default {
     }
   },
   methods: {
+    // 发送检索请求
     search_query() {
+      // $axios.get()...
+      this.$axios.get("/api/test-data/test.json")
+          .then(res => {
+            console.log("respone: " + JSON.stringify(res.data.papers[0].TI));
+            // Bus.receive_result(res.data);
+            Bus.query_data.query_result = res.data;
+          })
+          .catch(err => {
+            console.log(err);
+          })
       console.log(this.query);
-      Bus.update_query(this.query);
+      Bus.update_query_text(this.query);
       console.log("from bus: " + Bus.query_data.query_text);
       // this.query = "";
       this.$router.push("/ShowBoard")
@@ -45,5 +56,4 @@ el-input {
   display: inline-block;
   /* width: 50px; */
 }
-
 </style>

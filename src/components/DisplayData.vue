@@ -1,8 +1,15 @@
 <template>
   <div>
+    <div>
+      <p>响应式结果</p>
+      <ul>
+        <li v-for="(paperresult, index) in result" :key=index>{{paperresult.TI}}</li>
+      </ul>
+    </div>
     <el-row :gutter="20">
       <el-col :span="16">
         <div class="display-data">
+          <!-- 展示论文 -->
           <div class="show-pane">
             <el-card>
               <div>PAPER</div>
@@ -14,7 +21,8 @@
               </ul>
             </el-card>
           </div>
-
+          
+          <!-- 展示新闻 -->
           <div class="show-pane">
             <el-card>
               <div>NEWS</div>
@@ -27,6 +35,7 @@
             </el-card>
           </div>
 
+          <!-- 展示专利 -->
           <div class="show-pane">
             <el-card>
               <div>PATENT</div>
@@ -46,6 +55,7 @@
 
 <script>
   import Bus from "./bus.js"
+  // 测试用柱状图
   import testbar from './testbar.vue'
 
   export default {
@@ -56,14 +66,21 @@
     data() {
       return {
         data: "",
+        // 检索结果数据
+        result_data: ""
       }
     },
     computed: {
       paper_data() {
+        // console.log("实时响应数据变化")
         return Bus.test_data.papers
       },
       news_data() {
         return Bus.test_data.CN_News
+      },
+      result() {
+        console.log("bus数据改变了")
+        return Bus.query_data.query_result.papers;
       }
     },
     methods: {
@@ -87,6 +104,10 @@
 </script>
 
 <style>
+  ul {
+    list-style: none;
+  }
+
   .show-pane {
     margin: 5px auto 20px auto;
   }
