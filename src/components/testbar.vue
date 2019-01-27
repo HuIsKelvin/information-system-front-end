@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="bar" class="graph"></div>
+    <div :id="gId" class="graph" v-show="ifshow"></div>
   </div>
 </template>
 <script>
@@ -10,20 +10,53 @@
 
   export default {
     name: "testbar",
-    props: ["graph_id"],
+    // 传入的值
+    props: {
+      // 图的容器 div 的 id
+      gId: {
+        type: String,
+        // 必填
+        required: true
+      },
+      // 图的标题
+      gTitle: {
+        type: String,
+        default: "Title"
+      },
+      // 图的副标题
+      gSubtitle: {
+        type: String,
+        default: "Sub Title"
+      },
+      // 图的数据
+      gData: {
+        type: Object,
+        // required: true
+      },
+      // 是否显示
+      gShow: {
+        type: Boolean,
+        default: true
+      }
+    },
     data() {
       return {
-        title: "可视化示例",
-        // xData: ["nuctech Co Ltd", "Tsinghua University", "Hon Hai Precision Industry Co Ltd", "Huawei Technologies Co Ltd"],
-        // yData: [3, 11, 8, 2],
+        title: this.gTitle,
+        ifshow: this.gShow
       }
     },
     computed: {
+      // 这个方法可以放到mounted()里
       get_graph_data() {
-        return Bus.test_data.graph.testbar
-      },
-      graph() {
-        return this.graph_id;
+        if(Bus.test_data.graph.testbar)
+          return Bus.test_data.graph.testbar
+        // if(Bus.get_result_graph())
+          // return Bus.get_result_graph()
+        else {
+          // 若无该图数据，则不显示
+          this.ifshow = false;
+          console.log("无该图数据");
+        }
       },
       getX() {
         return this.get_graph_data.xData;
@@ -33,13 +66,13 @@
       }
     },
     mounted() {
-      // let _this = this;
       // 基于准备好的dom，初始化echarts实例
-      let myChart = echarts.init(document.getElementById("bar"));
+      let myChart = echarts.init(document.getElementById(this.gId));
       // 绘制图表
       myChart.setOption({
         title: {
-          text: this.title  // "可视化例子"
+          text: this.gTitle,  // "可视化例子"
+          subtext: this.gSubtitle
         },
         tooltip: {},
         xAxis: {
@@ -54,6 +87,7 @@
         }]
       });
       
+      // 点击事件
       myChart.on('click', function (params) {
         window.open('https://www.baidu.com/s?wd=' + encodeURIComponent(params.name));
       });
@@ -67,6 +101,6 @@
   width: 100%;
   min-height: 200px;
   height: 400px;
-  border: 1px solid grey;
+  /* border: 1px solid grey; */
 }
 </style>

@@ -32,6 +32,12 @@ export default new Vue({
     },
     receive_result(val) {
       this.query_data.query_result = val;
+    },
+    get_result() {
+      return this.query_data.query_result;
+    },
+    get_result_graph() {
+      return this.query_data.query_result.graph;
     }
   },
   // created() {

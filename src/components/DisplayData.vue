@@ -1,11 +1,5 @@
 <template>
   <div>
-    <div>
-      <p>响应式结果</p>
-      <ul>
-        <li v-for="(paperresult, index) in result" :key=index>{{paperresult.TI}}</li>
-      </ul>
-    </div>
     <el-row :gutter="20">
       <el-col :span="16">
         <div class="display-data">
@@ -13,12 +7,16 @@
           <div class="show-pane">
             <el-card>
               <div>PAPER</div>
-              <ul>
+              <!-- <ul>
                 <li v-for="(paper, index) in paper_data" :key=index>
-                  <p>{{paper.TI}}</p>
+                  <p>TITLE: {{paper.TI}}</p>
                   <p>ID: {{paper.UID}}</p>
                 </li>
-              </ul>
+              </ul> -->
+              <div v-for="(paper, index) in paper_data" :key=index>
+                <p>{{paper.TI}}</p>
+                <p>ID: {{paper.UID}}</p>
+              </div>
             </el-card>
           </div>
           
@@ -26,12 +24,10 @@
           <div class="show-pane">
             <el-card>
               <div>NEWS</div>
-              <ul>
-                <li v-for="(news, index) in news_data" :key=index>
+                <div v-for="(news, index) in news_data" :key=index>
                   <p>{{news.title}}</p>
                   <p>ID: {{news.ID}}</p>
-                </li>
-              </ul>
+                </div>
             </el-card>
           </div>
 
@@ -46,7 +42,11 @@
 
       <el-col :span="8">
         <div class="visual">
-          <testbar graph_id='testbar'></testbar>
+          <testbar 
+            g-id='testbar'
+            g-title="例子-柱状图"
+            g-subtitle="副标题">
+          </testbar>
         </div>
       </el-col>
     </el-row>
@@ -73,38 +73,26 @@
     computed: {
       paper_data() {
         // console.log("实时响应数据变化")
-        return Bus.test_data.papers
+        // return Bus.test_data.papers
+        return this.result.papers;
       },
       news_data() {
-        return Bus.test_data.CN_News
+        return this.result.CN_News;
       },
+      // 获取 bus 里的搜索结果
       result() {
         console.log("bus数据改变了")
-        return Bus.query_data.query_result.papers;
+        return Bus.query_data.query_result;
       }
     },
     methods: {
-      // 无法加载本地文件
-      // showdata() {
-      //   var self = this;
-      //   let url = "http://localhost:8080/assets/test.json";
-      //   this.$axios.get(url)
-      //     .then(res => {
-      //       console.log(res.status);
-      //       self.data = res.data;
-      //       // console.log("after" + self.data)
-      //     })
-      //     .catch(err => {
-      //       console.log(err);
-      //       console.log("axios出错！");
-      //     })
-      // }
     }
   }
 </script>
 
 <style>
-  ul {
+  ul,
+  li {
     list-style: none;
   }
 
