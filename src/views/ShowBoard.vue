@@ -1,17 +1,37 @@
 <template>
   <div class="show-board">
-    <h1>what you search: {{show_query}}</h1>
-    <display-data></display-data>
+    <div class="card-board">
+      <p>What you search: </p>
+      <h1>{{show_query}}</h1>
+    </div>
+
+    <el-row :gutter="20">
+      <el-col :span="16">
+        <!-- 展示数据 -->
+        <h1>数据展示</h1>
+        <data-board></data-board>
+      </el-col>
+
+      <el-col :span="8">
+        <!-- 展示可视化图 -->
+        <h1>可视化</h1>
+        <visual-board></visual-board>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
 <script>
 import Bus from "./../components/bus.js"
-import DisplayData from './../components/DisplayData'
+import DataBoard from './../components/DataBoard'
+import VisualBoard from "./../components/VisualBoard"
+import testbar from './../components/testbar'
 
 export default {
   components:{
-    "display-data": DisplayData
+    "data-board": DataBoard,
+    "visual-board": VisualBoard,
+    // testbar
   },
   data () {
     return {
@@ -19,24 +39,20 @@ export default {
   },
   computed: {
     show_query() {
-      return Bus.query_data.query_text;
+      return Bus.get_query_text();
     }
   }
 }
 </script>
 
 <style>
-h5 {
-  display: inline-block;
-  padding-left: 20px;
-}
-
-ul {
-  list-style: none;
-}
-
 .show-board {
   width: 100%;
   margin: 0 auto;
+}
+
+.card-board {
+  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }
 </style>

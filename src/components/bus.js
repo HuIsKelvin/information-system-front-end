@@ -13,29 +13,32 @@ import Vue from 'vue'
 
 export default new Vue({
   methods: {
-    getLastQuery() {
+    get_query_text() {
       return this.query_data.query_text;
     },
     return_testdata() {
       return this.test_data;
     },
-    update() {
-      // 监听事件，更新数据
-      this.$on("update_data", (val) => {
-        this.data = val;
-      })
-    },
+    // update() {
+    //   // 监听事件，更新数据
+    //   this.$on("update_data", (val) => {
+    //     this.data = val;
+    //   })
+    // },
     update_query_text(val) {
-      if(val != "") {
+      if (val != "") {
         this.query_data.query_text = val;
       }
     },
+    // 接收数据结果
     receive_result(val) {
       this.query_data.query_result = val;
     },
+    // 取出数据
     get_result() {
       return this.query_data.query_result;
     },
+    // 取出图的数据
     get_result_graph() {
       return this.query_data.query_result.graph;
     }
@@ -49,13 +52,56 @@ export default new Vue({
   data() {
     return {
       data: "origin data",
+      default: {},
       query_data: {
-        query_text: "origin query",
-        query_type: "",
+        query_text: "query",
+        type: "",
         seq: "",
-        query_result: ""
-      },
-      default: {
+        query_result: {
+          "graph": {
+            "graph_tree": {
+              "name": "flare",
+              "children": [{
+                  "name": "flex",
+                  "children": [{
+                    "name": "FlareVis"
+                  }]
+                },
+                {
+                  "name": "scale",
+                  "children": [{
+                      "name": "IScaleMap",
+                      "children": [{
+                        "name": "A"
+                      }]
+                    },
+                    {
+                      "name": "LinearScale"
+                    },
+                    {
+                      "name": "LogScale"
+                    },
+                    {
+                      "name": "OrdinalScale"
+                    },
+                    {
+                      "name": "QuantileScale"
+                    },
+                    {
+                      "name": "QuantitativeScale"
+                    }
+                  ]
+                },
+                {
+                  "name": "display",
+                  "children": [{
+                    "name": "DirtySprite"
+                  }]
+                }
+              ]
+            }
+          }
+        }
       },
       test_data: {
         "papers": [{
@@ -129,7 +175,7 @@ export default new Vue({
         graph: {
           testbar: {
             xData: ["nuctech Co Ltd", "Tsinghua University", "Hon Hai Precision Industry Co Ltd", "Huawei Technologies Co Ltd"],
-            yData: [3, 11, 8, 2],
+            yData: [3, 11, 16, 2],
           }
         }
       }

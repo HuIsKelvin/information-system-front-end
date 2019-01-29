@@ -1,10 +1,12 @@
 // vue.config.js
 module.exports = {
     devServer: {
+        port: 8888,
+        host: "0.0.0.0",
         proxy: {
             '/api': {
                 target: 'http://localhost:80',
-                // target: 'http://180.76.249.27:80/ai',
+                // target: 'http://180.76.249.27:80/ai/',
                 ws: true,  
                 changeOrigin: true,
                 pathRewrite: {

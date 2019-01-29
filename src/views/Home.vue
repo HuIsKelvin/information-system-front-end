@@ -1,7 +1,6 @@
 <template>
   <div class="home">
     <!-- <h1>Home Page</h1> -->
-    <button @click="test">test</button>
     <!-- 搜索框 + 封面 -->
     <div class="home-pane">
       <search-box class="center search-box"></search-box>
@@ -41,15 +40,6 @@
       "search-box": SearchBox
     },
     methods: {
-      test() {
-        // this.$axios.get("/api/test.json")
-        //   .then(res => {
-        //     console.log(res.data);
-        //   })
-        //   .catch(err => {
-        //     console.log(err);
-        //   })
-      }
     }
   }
 </script>

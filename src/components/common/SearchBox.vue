@@ -27,7 +27,6 @@
         // $axios.get()...
         this.$axios.get("/api/test-data/test.json")
           .then(res => {
-            // console.log("respone: " + JSON.stringify(res.data.papers[0].TI));
             console.log("respone: " + res.data.papers[0].TI);
             // console.log(res.data);
             Bus.receive_result(res.data);
@@ -45,18 +44,23 @@
         this.$router.push("/ShowBoard")
 
         // ----------------------------------------------------
-        // this.$axios.post("/api/MINA_STEP1/aitest.php", {
-        //   "page": "page",
-        //   "search": "SVM",
-        //   "way": "All",
-        //   "info": "",
-        //   "seq": "correlation"
-        // })
+        // // 将数据拼接为php可接收的格式
+        // let send_query = new URLSearchParams();
+        // send_query.append('page','1');
+        // send_query.append('search', this.query);
+        // send_query.append('way','way');
+        // send_query.append('info','info');
+        // send_query.append('Seq','correlation');
+        // // 更新 bus 的数据
+        // Bus.update_query_text(this.query);
+        // // 发送 post 请求
+        // this.$axios.post("/api/MINA_STEP1/aitest.php", send_query)
         //   .then(res => {
         //     console.log(res.data);
+        //     Bus.receive_result(res.data);
         //   })
         //   .catch(err => {
-        //     console.log(err);
+        //     console.log("Error" + err);
         //   })
       }
     }
