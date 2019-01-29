@@ -38,6 +38,7 @@ export default {
     }
   },
   computed: {
+    // 展示检索输入的词
     show_query() {
       return Bus.get_query_text();
     }

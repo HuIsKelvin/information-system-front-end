@@ -2,32 +2,26 @@
   <div class="data-board">
     <!-- 展示论文 -->
     <div class="show-pane">
-      <el-card>
-        <div class="categories">PAPER</div>
-        <div class="data-item" v-for="(paper, index) in paper_data" :key=index>
-          <p>{{paper.TI}}</p>
-          <p>{{paper.UID}}</p>
-        </div>
-      </el-card>
+      <div class="categories">PAPER</div>
+      <div class="data-item" v-for="(paper, index) in paper_data" :key=index>
+        <p>{{paper.TI}}</p>
+        <p>{{paper.UID}}</p>
+      </div>
     </div>
 
     <!-- 展示新闻 -->
     <div class="show-pane">
-      <el-card>
-        <div class="categories">NEWS</div>
-        <div class="data-item" v-for="(news, index) in news_data" :key=index>
-          <p>{{news.title}}</p>
-          <p>{{news.ID}}</p>
-          <p>{{news.release_time}}</p>
-        </div>
-      </el-card>
+      <div class="categories">NEWS</div>
+      <div class="data-item" v-for="(news, index) in news_data" :key=index>
+        <p>{{news.title}}</p>
+        <p>{{news.ID}}</p>
+        <p>{{news.release_time}}</p>
+      </div>
     </div>
 
     <!-- 展示专利 -->
     <div class="show-pane">
-      <el-card>
-        <div class="categories">PATENT</div>
-      </el-card>
+      <div class="categories">PATENT</div>
     </div>
   </div>
 </template>
@@ -51,14 +45,11 @@
         return Bus.get_result();
       },
       paper_data() {
-        // console.log("实时响应数据变化")
-        // return Bus.test_data.papers
         return this.result.papers;
       },
       news_data() {
         return this.result.CN_News;
       },
-      // 获取 bus 里的搜索结果
     },
     methods: {}
   }

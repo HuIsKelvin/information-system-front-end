@@ -27,7 +27,7 @@
         // $axios.get()...
         this.$axios.get("/api/test-data/test.json")
           .then(res => {
-            console.log("respone: " + res.data.papers[0].TI);
+            console.log("part of respone: " + res.data.papers[0].TI);
             // console.log(res.data);
             Bus.receive_result(res.data);
             // Bus.query_data.query_result = res.data;
@@ -35,12 +35,13 @@
           .catch(err => {
             console.log(err);
           })
-        console.log(this.query);
+        console.log("query text: " + this.query);
         // 更新 bus 里的搜索结果
         Bus.update_query_text(this.query);
-        console.log("from bus: " + Bus.query_data.query_text);
-        // 是否保留上次的检索
-        // this.query = "";
+        console.log("query text from bus: " + Bus.query_data.query_text);
+        // 搜索框是否保留上次的检索
+        this.query = "";
+        // 动态路由，到 showboard 界面
         this.$router.push("/ShowBoard")
 
         // ----------------------------------------------------

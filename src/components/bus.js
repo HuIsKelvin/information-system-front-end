@@ -2,7 +2,10 @@
 bus作为数据存储中心，并负责组件间数据通信
 在用到bus的组件中，都需要import Bus from path
 
-组件直接使用bus的数据，在 computed 中 return Bus. data
+组件直接使用bus的数据
+使用 bus 的 methods 获取数据
+
+事件监听
 发送 Bus.$emit(eventname, value)
 监听 Bus.$on(eventname, function(value){ 对应操作 })
 
